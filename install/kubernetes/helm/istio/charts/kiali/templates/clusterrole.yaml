@@ -6,10 +6,21 @@ metadata:
     app: kiali
     version: master
 rules:
+- apiGroups: ["batch"]
+  resources:
+  - jobs
+  - cronjobs
+  verbs:
+  - get
+  - list
+  - watch
 - apiGroups: ["","apps", "autoscaling"]
   resources:
   - configmaps
   - namespaces
+  - replicasets
+  - replicationcontrollers
+  - statefulsets
   - nodes
   - pods
   - projects

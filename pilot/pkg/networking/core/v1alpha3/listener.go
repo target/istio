@@ -2003,6 +2003,8 @@ func buildHTTPConnectionManager(pluginParams *plugin.InputParams, httpOpts *http
 		proxyConfig := pluginParams.Node.Metadata.ProxyConfigOrDefault(pluginParams.Push.Mesh.DefaultConfig)
 		connectionManager.Tracing = buildTracingConfig(proxyConfig)
 		connectionManager.GenerateRequestId = proto.BoolTrue
+	} else {
+		connectionManager.GenerateRequestId = proto.BoolFalse
 	}
 
 	return connectionManager
